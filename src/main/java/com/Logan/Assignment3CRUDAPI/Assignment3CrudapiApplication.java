@@ -1,4 +1,4 @@
-package com.Logan.Assignment3CRUDAPI;
+package com.Logan.assignment3crudapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
