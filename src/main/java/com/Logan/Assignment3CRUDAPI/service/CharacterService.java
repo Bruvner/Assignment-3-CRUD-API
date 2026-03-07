@@ -28,18 +28,23 @@ public class CharacterService {
         return repository.save(character);
     }
 
-    public Character updateCharacter(Long id, Character updatedCharacter) {
-        return repository.findById(id).map(character -> {
-            character.setName(updatedCharacter.getName());
-            character.setDescription(updatedCharacter.getDescription());
-            character.setUniverse(updatedCharacter.getUniverse());
-            character.setSpecies(updatedCharacter.getSpecies());
-            return repository.save(character);
-        }).orElse(null);
+    public Optional<Character> updateCharacter(Long id, Character updated) {
+        return repository.findById(id).map(existing -> {
+            existing.setName(updated.getName());
+            existing.setDescription(updated.getDescription());
+            existing.setUniverse(updated.getUniverse());
+            existing.setSpecies(updated.getSpecies());
+            existing.setRole(updated.getRole());
+            return repository.save(existing);
+        });
     }
 
-    public void deleteCharacter(Long id) {
-        repository.deleteById(id);
+    public boolean deleteCharacter(Long id) {
+        if (repository.existsById(id)) {
+            repository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 
     public List<Character> getByUniverse(String universe) {
