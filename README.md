@@ -1,4 +1,4 @@
-# Assignment-3-CRUD-API
+# Assignment-3-CRUD-API AND Assignment 4 2 and 3 combined
 
 Clone the repo:
 
@@ -38,3 +38,10 @@ GET	    /characters/category/{category}	Get characters by category	            N
 GET	    /characters/search?name=substring Search characters by name substring	name=substring
 
 And thats basically it. 
+
+UPDATE
+
+-Video showing mvc working demo :)
+
+I had to put it in a zip file for space reasons - github didn't let me put the video file directly
+[Video.zip](https://github.com/user-attachments/files/26624036/Video.zip)
