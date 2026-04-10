@@ -22,9 +22,13 @@ public class CharacterMvcController {
     }
 
     @GetMapping("/characters/{id}")
-    public String getCharacterById(@PathVariable Long id, Model model) {
-        model.addAttribute("character", service.getCharacterById(id).orElse(null));
-        return "character-details";
+    public String getCharacterById(@PathVariable("id") Long id, Model model) {
+        return service.getCharacterById(id)
+                .map(character -> {
+                    model.addAttribute("character", character);
+                    return "character-details";
+                })
+                .orElse("redirect:/characters");
     }
 
     @GetMapping("/about")
@@ -38,8 +42,31 @@ public class CharacterMvcController {
     }
 
     @PostMapping("/characters/create")
-    public String createCharacter(Character character) {
+    public String createCharacter(@ModelAttribute Character character) {
         service.addCharacter(character);
+        return "redirect:/characters";
+    }
+
+    @GetMapping("/characters/update/{id}")
+    public String showUpdateForm(@PathVariable("id") Long id, Model model) {
+        return service.getCharacterById(id)
+                .map(character -> {
+                    model.addAttribute("character", character);
+                    return "character-update";
+                })
+                .orElse("redirect:/characters");
+    }
+
+    @PostMapping("/characters/update/{id}")
+    public String updateCharacter(@PathVariable("id") Long id,
+        @ModelAttribute Character character) {
+        service.updateCharacter(id, character);
+        return "redirect:/characters/" + id;
+    }
+
+    @GetMapping("/characters/delete/{id}")
+    public String deleteCharacter(@PathVariable("id") Long id) {
+        service.deleteCharacter(id);
         return "redirect:/characters";
     }
 }

@@ -1,10 +1,10 @@
 package com.Logan.assignment3crudapi.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.Column;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
@@ -27,18 +27,19 @@ public class Character {
 
     // NEW field: role
     private String role;
-
+    private String imageFile;
     public Character() {
     }
 
-    public Character(Long id, String name, String description, String universe, String species, String role) {
+    public Character(Long id, String name, String description, String universe, String species, String role, String imageFile) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.universe = universe;
         this.species = species;
         this.role = role;
-    }
+        this.imageFile = imageFile;
+}
 
     // Getters / setters
 
@@ -90,4 +91,13 @@ public class Character {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public String getImageFile() {
+        return imageFile;
+    }
+
+    public void setImageFile(String imageFile) {
+        this.imageFile = imageFile;
+    }
+
 }

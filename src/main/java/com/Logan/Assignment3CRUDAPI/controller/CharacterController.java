@@ -9,7 +9,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/characters")
+@RequestMapping("/api/characters")
 public class CharacterController {
 
     private final CharacterService service;

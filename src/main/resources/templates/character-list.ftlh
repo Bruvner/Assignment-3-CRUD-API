@@ -21,7 +21,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="/characters">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="/characters/1">Details</a></li>
+        <li class="nav-item"><a class="nav-link" href="/characters/">Details</a></li>
         <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
         <li class="nav-item"><a class="nav-link" href="/characters/create">Add a Character</a></li>
       </ul>
@@ -58,7 +58,7 @@
             <p class="card-text">
               ${character.description}
             </p>
-            <a href="/characters/${character.characterId?c}" class="btn btn-primary">View Details</a>
+            <a href="/characters/${character.id?c}" class="btn btn-primary">View Details</a>
           </div>
         </div>
       </div>

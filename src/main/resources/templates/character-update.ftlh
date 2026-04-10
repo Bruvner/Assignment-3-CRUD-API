@@ -11,7 +11,7 @@
 
   <h1>Update Character</h1>
 
-  <form action="/characters/update/${character.characterId}" method="post">
+  <form action="/characters/update/${character.id}" method="post">
 
     <div class="mb-3">
       <label>Name</label>
