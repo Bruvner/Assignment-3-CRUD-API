@@ -1,4 +1,4 @@
-# Assignment-3-CRUD-API Technically Also Assignment 3 and 2
+# Assignment-3-CRUD-API
 
 Clone the repo:
 
